@@ -39,3 +39,26 @@ class Operation:
             f'{self.to}'
         ]
         return ', '.join(data)
+
+
+class Client:
+    """
+    Абстракция клиента
+    """
+    def __init__(self):
+        self.operations: list = []
+
+    def __repr__(self):
+        """
+        __repr__
+        :return: Список из всех операций клиента
+        """
+        return ', '.join(self.operations)
+
+    def add_operation(self, operation):
+        """
+        Добавляет операцию клиенту
+        :param operation: сама операция
+        :return: None
+        """
+        self.operations.append(operation)
