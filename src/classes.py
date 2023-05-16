@@ -11,7 +11,16 @@ class Operation:
         pass
 
     def __repr__(self):
-        return f'id:{self.id}'
+        data = [
+            f'id:{self.id}',
+            f'date:{self.date}',
+            f'state:{self.state}',
+            f'op_am:{self.op_am}',
+            f'descr:{self.descr}',
+            f'from_:{self.from_}',
+            f'to:{self.to}'
+        ]
+        return ', '.join(data)
 
     def __str__(self):
         return f'id:{self.id}, state:{self.state}'
