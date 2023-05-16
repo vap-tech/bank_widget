@@ -1,3 +1,3 @@
-# bank_widget
-This is my favorit app.
+# bank_widget #
+This is my favorite app.
 Thanks
