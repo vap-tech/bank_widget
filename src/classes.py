@@ -23,4 +23,13 @@ class Operation:
         return ', '.join(data)
 
     def __str__(self):
-        return f'id:{self.id}, state:{self.state}'
+        data = [
+            f'{self.id}',
+            f'{self.date}',
+            f'{self.state}',
+            f'{self.op_am}',
+            f'{self.descr}',
+            f'{self.from_}',
+            f'{self.to}'
+        ]
+        return ', '.join(data)
