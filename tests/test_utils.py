@@ -1,5 +1,5 @@
 from src.utils import read_operations
-from src.utils import FILE_NAME
+from src.constants import FILE_NAME
 
 
 def test_read_operations():
