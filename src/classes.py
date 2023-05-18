@@ -10,7 +10,7 @@ class Operation:
         """
         self.id: int = id_tr
         self.state: str = ''  # EXECUTED` — выполнена, `CANCELED` — отменена.
-        self.date_t = None
+        self.date_t = None  # Объект класса datetime
         self.op_am = {}  # сумма операции и валюта
         self.descr: str = ''  # описание типа перевода
         self.from_: str = ''  # откуда(может отсутстовать)
@@ -62,3 +62,10 @@ class Client:
         :return: None
         """
         self.operations.append(operation)
+
+    def get_operation(self):
+        op = self.operations[0]
+        for i in range(len(self.operations)):
+            if self.operations[i].date_t < op.date_t:
+                op = self.operations[i]
+        return op
