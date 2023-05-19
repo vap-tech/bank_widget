@@ -64,8 +64,8 @@ class Client:
         self.operations.append(operation)
 
     def get_operation(self):
-        op = self.operations[0]
+        op_addr = 0
         for i in range(len(self.operations)):
-            if self.operations[i].date_t < op.date_t:
-                op = self.operations[i]
-        return op
+            if self.operations[i].date_t < self.operations[op_addr].date_t:
+                op_addr = i
+        return self.operations.pop(op_addr)
