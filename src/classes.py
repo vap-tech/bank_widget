@@ -67,5 +67,6 @@ class Client:
         op_addr = 0
         for i in range(len(self.operations)):
             if self.operations[i].date_t < self.operations[op_addr].date_t:
-                op_addr = i
+                if self.operations[i].state == 'EXECUTED':
+                    op_addr = i
         return self.operations.pop(op_addr)
