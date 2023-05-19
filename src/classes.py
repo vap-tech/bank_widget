@@ -64,6 +64,10 @@ class Client:
         self.operations.append(operation)
 
     def get_operation(self):
+        """
+        Удаляет операцию клиента
+        :return: Удалённая операция
+        """
         op_addr = 0
         for i in range(len(self.operations)):
             if self.operations[i].date_t < self.operations[op_addr].date_t:
