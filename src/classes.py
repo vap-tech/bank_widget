@@ -53,7 +53,7 @@ class Client:
         __repr__
         :return: Список из всех операций клиента
         """
-        return ', '.join(self.operations)
+        return self.operations
 
     def add_operation(self, operation):
         """
