@@ -46,3 +46,24 @@ def get_client(data: list) -> Client:
         op.to = item.get('to')
         client.add_operation(op)  # Добавляем объект операции клиенту
     return client
+
+
+def hide_schet(data):
+    """Маскирует строку "счет №", если на входе None -> пустая строка"""
+    if not data:
+        return ''
+    lst = data.split(' ')
+    if len(lst[-1]) == 20:
+        return f'Счет **{lst[1][-4:]}'
+    elif len(lst[-1]) == 16:
+        return f"{' '.join(lst[:-1])} {lst[-1][:4]} {lst[-1][4:6]}** **** {lst[-1][-4:]}"
+
+
+def operation_to_stdout(op: Operation):
+    """Выводит на экран форматированое инфо об операциях"""
+    print(op.date_t.strftime('%d.%m.%Y'), op.descr)
+    print(hide_schet(op.from_), end='')
+    print(bool(op.from_) * ' -> ', end='')
+    print(hide_schet(op.to))
+    print(op.op_am['amount'], op.op_am['name'])
+    return 0
